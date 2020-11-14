@@ -1,0 +1,1226 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "simplifica";
+  src: url("/src/font/simplifica/simplifica.eot");
+  src: url("/src/font/simplifica/Simplifica.ttf") format("ttf"), url("/src/font/simplifica/Simplifica.woff") format("woff"), url("/src/font/simplifica/Simplifica.otf") format("opentype"), url("/src/font/simplifica/Simplifica.svg") format("svg");
+}
+
+html, body, h1 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+@media only screen and (max-width: 1000px) {
+  .top-right {
+    right: 50px !important;
+  }
+  .top-left {
+    left: 50px !important;
+  }
+  .trace {
+    margin: 50px 100px 10px 100px !important;
+  }
+  .definition {
+    margin: 50px 0 !important;
+  }
+  .definition p {
+    padding: 0 !important;
+  }
+  .buttons {
+    margin: 0 100px 0 100px !important;
+  }
+  .body-attendance .event-detail {
+    width: 600px !important;
+  }
+  .body-attendance .event-detail div {
+    width: 280px !important;
+  }
+  .search, .other-event, .participant, .guest-show, .blocks, .body-trace .title, .contact-person, .body-event {
+    margin-left: 50px !important;
+    margin-right: 50px !important;
+  }
+  .body-trace .title h3 {
+    margin-left: 0 !important;
+  }
+  .body-trace .search .autocomplete {
+    width: 75% !important;
+  }
+  .show-detail {
+    margin: 50px 0 !important;
+  }
+  .detail {
+    width: 500px !important;
+  }
+  .detail .text {
+    padding: 30px 10px 30px 30px !important;
+  }
+  .detail .iconImg {
+    padding: 50px 0 50px 10px !important;
+  }
+  .detail .guestId {
+    right: 0 !important;
+    top: -40px !important;
+  }
+  .body-trace .autocomple {
+    width: 100vh !important;
+  }
+  .body-trace .detail-trace {
+    width: 600px !important;
+  }
+  .body-trace .detail-trace .imgLogo {
+    padding-top: 60px !important;
+  }
+  .right-event {
+    padding: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .top-right {
+    right: 20px !important;
+  }
+  .top-left {
+    left: 20px !important;
+  }
+  .definition {
+    margin: 50px 0 !important;
+  }
+  .definition p {
+    padding: 20px;
+  }
+  .trace {
+    margin: 50px 0 10px 0 !important;
+  }
+  .buttons {
+    margin: 0 0 0 0 !important;
+  }
+  .body-attendance .event-detail {
+    width: 100% !important;
+  }
+  .body-attendance .event-detail div {
+    width: 50% !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+  .search, .other-event, .participant, .guest-show, .blocks, .body-trace .title, .contact-person, .body-event {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+  .detail {
+    width: 300px !important;
+  }
+  .detail .text {
+    padding: 30px !important;
+    width: 100% !important;
+  }
+  .detail .iconImg {
+    display: none !important;
+  }
+  .detail .guestId {
+    right: 0 !important;
+    top: -40px !important;
+  }
+  .body-trace .detail-trace {
+    width: 300px !important;
+  }
+  .body-trace .detail-trace .ta, .body-trace .detail-trace .cp {
+    width: 100% !important;
+  }
+  .body-trace .detail-trace .imgLogo {
+    width: 30% !important;
+    padding-top: 60px !important;
+  }
+  .body-trace .detail-trace .traced_detail {
+    width: 70% !important;
+  }
+}
+
+.loader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  opacity: 1;
+  background-color: #faf9f9;
+}
+
+body {
+  background-color: #faf9f9 !important;
+}
+
+.attendance-body {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #d22c2c), color-stop(50%, #393a3c)) !important;
+  background-image: linear-gradient(90deg, #d22c2c 50%, #393a3c 50%) !important;
+}
+
+.logoIcon {
+  text-align: center;
+}
+
+.logoIcon p {
+  font-size: 28px;
+  line-height: normal;
+  letter-spacing: normal;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: bold;
+  color: #d22c2c;
+  cursor: pointer;
+  color: #d22c2c;
+  font-weight: bold;
+  -webkit-text-fill-color: #d22c2c;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+  text-shadow: rgba(56, 55, 55, 0.5) 2px 2px 2px;
+}
+
+.logoIcon p:hover {
+  text-shadow: rgba(56, 55, 55, 0) 2px 2px 2px;
+  -webkit-transform: translate(1px, 1px);
+          transform: translate(1px, 1px);
+}
+
+.top-right {
+  position: absolute;
+  top: 30px;
+  right: 150px;
+}
+
+.exit p {
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.exit p:hover {
+  -webkit-transform: translate(-5px, 0);
+          transform: translate(-5px, 0);
+}
+
+.exit p:hover:before {
+  content: "<< ";
+}
+
+.top-left {
+  position: absolute;
+  top: 30px;
+  left: 150px;
+}
+
+.body-index .heading {
+  width: 300px;
+  text-align: center;
+  margin: auto;
+  margin-top: 150px;
+}
+
+.body-index .heading h1 {
+  font-size: 130px;
+  line-height: 100px;
+  letter-spacing: 5px;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 100;
+  color: #d22c2c;
+}
+
+.body-index .heading h2 {
+  font-size: 24px;
+  line-height: normal;
+  letter-spacing: 5px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #d22c2c;
+  text-transform: uppercase;
+}
+
+.body-index .trace {
+  margin: 50px 200px 10px 200px;
+  position: relative;
+  border-top: 5px dashed #5d5f5c;
+}
+
+.body-index .trace p {
+  padding-top: 15px;
+  margin-right: 30px;
+  text-align: right;
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #5d5f5c;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+.body-index .trace:hover {
+  border-top: 5px solid #5d5f5c;
+}
+
+.body-index .trace:hover p {
+  -webkit-transform: translate(30px, 0);
+          transform: translate(30px, 0);
+}
+
+.body-index .definition {
+  margin: 0 200px 0 200px;
+}
+
+.body-index .definition p {
+  padding: 50px;
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #5d5f5c;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.body-index .buttons {
+  margin: 0 200px 0 200px;
+}
+
+.body-index .buttons button {
+  position: relative;
+  margin: auto;
+  width: 300px;
+  border-radius: 0;
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: normal;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: #5d5f5c;
+  border: none;
+  outline: 0;
+  overflow: hidden;
+  z-index: 1;
+  -webkit-transition: 0.2s ease-in;
+  transition: 0.2s ease-in;
+  -o-transition: 0.2s ease-in;
+  -ms-transition: 0.2s ease-in;
+  -moz-transition: 0.2s ease-in;
+}
+
+.body-index .buttons button:before {
+  content: "";
+  position: absolute;
+  background: #383736;
+  bottom: 0;
+  left: 0;
+  right: 100%;
+  top: 0;
+  z-index: -1;
+  -webkit-transition: right 0.2s ease-in;
+  transition: right 0.2s ease-in;
+}
+
+.body-index .buttons button:hover:before {
+  right: 0;
+}
+
+.body-index .buttons div {
+  text-align: center;
+}
+
+.body-index .buttons div button {
+  margin: 10px 5px;
+  width: 140px;
+  background-color: #d22c2c;
+}
+
+.body-index .buttons div button:first-child {
+  background-color: #f07249;
+}
+
+.modal p {
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bolder;
+  color: #5d5f5c;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 30px 0 20px 0;
+}
+
+.modal .modal-body {
+  padding: 30px 50px;
+}
+
+.modal .modal-body table td {
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #5d5f5c;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.body-attendance .event-detail {
+  width: 800px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  text-align: left;
+  margin-top: 150px;
+}
+
+.body-attendance .event-detail div {
+  margin-left: 20px;
+  width: 380px;
+  margin-right: 20px;
+}
+
+.body-attendance .event-detail div h1 {
+  word-wrap: break-word;
+  font-size: 36px;
+  line-height: normal;
+  letter-spacing: normal;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 900;
+  color: #d22c2c;
+  text-transform: uppercase;
+}
+
+.body-attendance .event-detail div p {
+  word-wrap: break-word;
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 5px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.body-attendance .event-detail div:first-child {
+  text-align: right;
+}
+
+.body-attendance .event-detail div:first-child h1 {
+  color: #393a3c;
+}
+
+.body-attendance .event-detail div:first-child p {
+  color: #fff;
+}
+
+.body-attendance .search {
+  position: relative;
+  margin: 50px 50px 0 150px;
+}
+
+.body-attendance .search .autocomplete {
+  position: relative;
+}
+
+.body-attendance .search input[type=button], .body-attendance .search input[type=submit], .body-attendance .search input[type=reset] {
+  background-color: #f07249;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+.body-attendance .search input[type=button]:hover, .body-attendance .search input[type=submit]:hover, .body-attendance .search input[type=reset]:hover {
+  background-color: #393a3c;
+}
+
+.body-attendance .search input {
+  margin-top: 10px;
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: normal;
+  color: #5d5f5c;
+  text-transform: uppercase;
+}
+
+.body-attendance .search p {
+  font-size: 14px;
+  line-height: 0;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: right;
+  cursor: pointer;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+.body-attendance .search p:hover {
+  color: #5d5f5c;
+}
+
+.body-attendance .other-event {
+  margin: 50px 70px 0 170px;
+}
+
+.body-attendance .other-event h3 {
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: normal;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.body-attendance .other-event table {
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: normal;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.body-attendance .other-event table tr {
+  cursor: pointer;
+}
+
+.body-attendance .other-event table tr:hover {
+  background-color: #b42626;
+}
+
+.body-attendance .participant {
+  margin: 30px 170px 0 70px;
+}
+
+.body-attendance .participant h2 {
+  font-size: 24px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: normal;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.body-attendance .participant table {
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: normal;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.body-attendance .participant table tr {
+  cursor: pointer;
+}
+
+.body-attendance .participant table tr:hover {
+  background-color: #b42626;
+}
+
+.body-attendance .participant table .deleteParticipant {
+  color: #d22c2c;
+  font-weight: 900;
+  font-size: 14px;
+}
+
+.body-attendance .participant table .deleteParticipant:hover {
+  color: #fff;
+}
+
+.body-guest, .body-trace, .body-event {
+  min-height: 95vh;
+}
+
+.body-guest .detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 700px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  position: relative;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+.body-guest .detail .text {
+  padding: 30px 100px 30px 30px;
+  width: 70%;
+  background-color: #fff;
+  word-wrap: break-word;
+}
+
+.body-guest .detail .text h1 {
+  font-size: 36px;
+  line-height: normal;
+  letter-spacing: normal;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: normal;
+  color: #d22c2c;
+}
+
+.body-guest .detail .text h3 {
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #5d5f5c;
+  text-transform: uppercase;
+}
+
+.body-guest .detail .text p {
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #5d5f5c;
+  text-transform: uppercase;
+}
+
+.body-guest .detail .iconImg {
+  width: 30%;
+  padding: 50px 0 50px 100px;
+  background-color: #fff;
+}
+
+.body-guest .detail .iconImg img {
+  width: 100%;
+  display: inline-block;
+}
+
+.body-guest .detail .guestId {
+  position: absolute;
+  padding: 10px 20px;
+  border-radius: 15%;
+  right: -20px;
+  top: -20px;
+  background-color: #f07249;
+  font-size: 24px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: normal;
+  color: #fff;
+}
+
+.body-guest .detail:hover {
+  -webkit-box-shadow: 0px 0px 15px rgba(56, 55, 55, 0.4);
+          box-shadow: 0px 0px 15px rgba(56, 55, 55, 0.4);
+}
+
+.body-guest .detail .editDelete {
+  position: absolute;
+  bottom: -40px;
+  right: 10px;
+}
+
+.body-guest .detail .editDelete p {
+  cursor: pointer;
+  margin-right: 10px;
+  display: inline;
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #5d5f5c;
+  text-transform: uppercase;
+}
+
+.body-guest .detail .editDelete p:last-child {
+  color: #d22c2c;
+}
+
+.body-guest .detail .editDelete p:hover {
+  color: #f07249;
+}
+
+.body-guest .guest-show {
+  margin: 50px 150px;
+}
+
+.body-guest .guest-show .title h3 {
+  padding-top: 50px;
+  padding-left: 30px;
+  border-top: 5px dashed #5d5f5c;
+  color: #d22c2c;
+}
+
+.body-guest .guest-show .filter {
+  margin: auto;
+  width: 50%;
+}
+
+.body-guest .blocks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
+  margin: 50px 100px;
+}
+
+.body-guest .blocks #searchDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+}
+
+.body-guest .blocks #searchDiv div {
+  cursor: pointer;
+  width: 130px;
+  padding: 35px 10px;
+  margin: 5px 5px;
+  background-color: #fff;
+  text-align: center;
+  border: 1px solid rgba(104, 87, 87, 0.2);
+}
+
+.body-guest .blocks #searchDiv div p {
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #5d5f5c;
+  text-transform: uppercase;
+}
+
+.body-guest .blocks #searchDiv div:first-child {
+  background-color: #f07249;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+.body-guest .blocks #searchDiv div:first-child p {
+  font-size: 48px;
+  color: #fff;
+}
+
+.body-guest .blocks #searchDiv div:first-child:hover {
+  background-color: #d22c2c;
+}
+
+.body-guest .blocks #searchDiv div:hover {
+  -webkit-box-shadow: 0px 0px 8px rgba(56, 55, 55, 0.4);
+          box-shadow: 0px 0px 8px rgba(56, 55, 55, 0.4);
+}
+
+.body-trace .title {
+  margin: 50px 0 0 150px;
+}
+
+.body-trace .title h3 {
+  margin-left: 50px;
+  color: #d22c2c;
+}
+
+.body-trace .search {
+  margin: 0 0 80px 200px;
+}
+
+.body-trace .search .autocomplete {
+  width: 30%;
+}
+
+.body-trace .search input[type=button], .body-trace .search input[type=submit], .body-trace .search input[type=reset] {
+  background-color: #5d5f5c;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+.body-trace .search input[type=button]:hover, .body-trace .search input[type=submit]:hover, .body-trace .search input[type=reset]:hover {
+  background-color: #393a3c;
+}
+
+.body-trace .detail-trace {
+  margin: auto;
+  width: 800px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.body-trace .detail-trace .ta {
+  width: 25%;
+  text-align: center;
+}
+
+.body-trace .detail-trace .ta h1 {
+  font-size: 100px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 900;
+  color: #d22c2c;
+  word-wrap: wrap;
+}
+
+.body-trace .detail-trace .ta p {
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #d22c2c;
+  text-transform: uppercase;
+}
+
+.body-trace .detail-trace .cp {
+  width: 25%;
+  text-align: center;
+}
+
+.body-trace .detail-trace .cp h1 {
+  font-size: 100px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 900;
+  color: #f07249;
+  word-wrap: wrap;
+}
+
+.body-trace .detail-trace .cp p {
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #f07249;
+  text-transform: uppercase;
+}
+
+.body-trace .detail-trace .imgLogo {
+  width: 15%;
+  padding-top: 30px;
+}
+
+.body-trace .detail-trace .imgLogo img {
+  width: 100%;
+  display: inline;
+}
+
+.body-trace .detail-trace .traced_detail {
+  width: 35%;
+  padding-top: 40px;
+}
+
+.body-trace .detail-trace .traced_detail p {
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #5d5f5c;
+  text-transform: uppercase;
+}
+
+.body-trace .detail-trace .traced_detail p:nth-child(2) {
+  background-color: #5d5f5c;
+  color: #fff;
+  padding-left: 10px;
+}
+
+.body-trace .contact-person {
+  margin: 100px 150px;
+  border-top: 5px dashed #5d5f5c;
+}
+
+.body-trace .contact-person h3 {
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #5d5f5c;
+  text-transform: uppercase;
+  padding: 30px 0 0 30px;
+}
+
+.body-trace .contact-person table {
+  cursor: pointer;
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #5d5f5c;
+  text-transform: uppercase;
+}
+
+.body-trace .contact-person table img {
+  width: 20px;
+}
+
+.body-trace .contact-person table .td-guest:hover {
+  background-color: #f07249;
+  color: #fff;
+}
+
+.body-trace .contact-person table .td-event:hover {
+  background-color: #d22c2c;
+  color: #fff;
+}
+
+.body-event {
+  margin: 50px 150px;
+}
+
+.body-event .show-detail {
+  margin: 50px 50px 100px 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.body-event .show-detail .event-number {
+  background-color: #d22c2c;
+  width: 30%;
+  position: relative;
+}
+
+.body-event .show-detail .event-number p {
+  font-size: 48px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 900;
+  color: #fff;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.body-event .show-detail .text {
+  width: 70%;
+  padding-left: 20px;
+}
+
+.body-event .show-detail .text h2 {
+  font-size: 24px;
+  line-height: 20px;
+  letter-spacing: 3px;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 900;
+  color: #d22c2c;
+}
+
+.body-event .show-detail .text h1 {
+  font-size: 36px;
+  line-height: 30px;
+  letter-spacing: 3px;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 900;
+  color: #5d5f5c;
+}
+
+.body-event .show-detail .text p {
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #5d5f5c;
+  text-transform: uppercase;
+}
+
+.body-event .show-detail .buttons {
+  position: absolute;
+  bottom: -40px;
+  right: 10px;
+}
+
+.body-event .show-detail .buttons p {
+  cursor: pointer;
+  display: inline;
+  margin-right: 10px;
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #5d5f5c;
+  text-transform: uppercase;
+}
+
+.body-event .show-detail .buttons p:last-child {
+  color: #d22c2c;
+}
+
+.body-event .show-detail .buttons p:hover {
+  color: #f07249;
+}
+
+.body-event .participant-section {
+  border-top: 5px dashed #5d5f5c;
+}
+
+.body-event .participant-section h3 {
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #5d5f5c;
+  text-transform: uppercase;
+  padding-top: 30px;
+}
+
+.body-event .participant-section .table {
+  cursor: pointer;
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #5d5f5c;
+  text-transform: uppercase;
+}
+
+.body-event .participant-section .table p {
+  color: #d22c2c;
+  font-size: 12px;
+}
+
+.body-event .participant-section .table p:hover {
+  color: #393a3c;
+}
+
+.body-event .participant-section form .autocomplete {
+  width: 50%;
+}
+
+.body-event .participant-section form input[type=button], .body-event .participant-section form input[type=submit], .body-event .participant-section form input[type=reset] {
+  background-color: #5d5f5c;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+.body-event .participant-section form input[type=button]:hover, .body-event .participant-section form input[type=submit]:hover, .body-event .participant-section form input[type=reset]:hover {
+  background-color: #393a3c;
+}
+
+.body-event .right-event {
+  padding-left: 50px;
+}
+
+.body-event .right-event .title h3 {
+  padding-bottom: 30px;
+  color: #d22c2c;
+}
+
+.body-event .right-event table {
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #5d5f5c;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.body-event .right-event table th {
+  color: #f07249;
+}
+
+.body-event .right-event .event-detail {
+  margin-top: 30px;
+}
+
+.body-event .right-event .event-detail button {
+  margin-bottom: 10px;
+  background-color: #f07249;
+  color: #fff;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+.body-event .right-event .event-detail button:hover {
+  background-color: #393a3c;
+}
+
+.traced {
+  border-top: 5px solid #5d5f5c !important;
+}
+
+.nav > li > a:focus, .nav > li > a:hover {
+  text-decoration: none;
+  background-color: transparent !important;
+}
+
+nav {
+  margin: 0 150px;
+  padding-top: 40px;
+}
+
+nav a {
+  text-align: center;
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bolder;
+  color: #5d5f5c;
+  text-transform: uppercase;
+}
+
+nav a:hover {
+  color: #f07249;
+}
+
+nav li.active a {
+  color: #d22c2c;
+}
+
+.container-form {
+  margin: 0 30px;
+}
+
+.container-form input {
+  margin: 5px 0;
+}
+
+div.title h3 {
+  font-size: 24px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.sidenav-left {
+  background-color: #393a3c;
+}
+
+.sidenav-left p {
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: normal;
+  color: #fff;
+  text-transform: uppercase;
+  padding-top: 10px;
+}
+
+.sidenav-left button {
+  background-color: #d22c2c;
+  color: #fff;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+.sidenav-left button:hover {
+  color: #fff;
+  background-color: #5d5f5c;
+}
+
+.sidenav-right {
+  background-color: #d22c2c;
+}
+
+.sidenav-right p {
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: normal;
+  color: #fff;
+  text-transform: uppercase;
+  padding-top: 10px;
+}
+
+.sidenav-right button {
+  background-color: #f07249;
+  color: #fff;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+.sidenav-right button:hover {
+  color: #fff;
+  background-color: #5d5f5c;
+}
+
+input, button {
+  border-radius: 0 !important;
+  border: none !important;
+  outline: 0 !important;
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: normal;
+  color: #5d5f5c;
+  text-transform: uppercase !important;
+}
+
+.footer {
+  position: realative;
+  bottom: 0;
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+}
+
+.footer P {
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: 3px;
+  font-family: "simplifica";
+  font-weight: 900;
+  color: #393a3c;
+  text-transform: uppercase !important;
+}
+
+.footer P:before {
+  content: "©";
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,67 @@
+$primaryColor :  #d22c2c;
+$secondaryColor :  #5d5f5c;
+$primaryColor2 :  #f07249;
+$secondaryColor2: #393a3c;
+$offColor2: #faf9f9;
+$offColor : #fff;
+
+$font : 'Alegreya Sans', sans-serif;
+$font2 : "simplifica";
+
+@font-face {
+    font-family: "simplifica";
+    src: url("/src/font/simplifica/simplifica.eot");
+    src: url("/src/font/simplifica/Simplifica.ttf") format("ttf"),
+    url("/src/font/simplifica/Simplifica.woff") format("woff"),
+    url("/src/font/simplifica/Simplifica.otf") format("opentype"),
+    url("/src/font/simplifica/Simplifica.svg") format("svg");
+}
+
+
+@mixin font($size, $ls, $ts, $name, $weight, $color) {
+    font-size: $size;
+    line-height: $ls;
+    letter-spacing: $ts;
+    font-family: $name;
+    font-weight: $weight;
+    color: $color;
+}
+
+//set container
+@mixin setContainer($x1,$x2,$x3){
+    height:$x3;
+    width: $x2;
+    position: $x1;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+}
+
+//for stroking outside fonts
+@mixin stroke($fontcolor, $fw, $fill, $strokewidth, $strokecolor){
+    color: $fontcolor;
+    font-weight: $fw;
+    -webkit-text-fill-color: $fill;
+    -webkit-text-stroke-width: $strokewidth;
+    -webkit-text-stroke-color: $strokecolor;
+}
+
+// whole page fixed
+@mixin setFixedpage{
+    height:100%;
+    width: 100%;
+    position: fixed;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+}
+
+// default
+html, body, h1{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}

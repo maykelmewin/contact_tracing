@@ -1,0 +1,150 @@
+
+
+@media only screen and (max-width: 1000px){
+    .top-right{
+        right: 50px !important;
+    }
+
+    .top-left{
+        left: 50px !important;
+    }
+
+    .trace{  
+        margin: 50px 100px 10px 100px !important;
+    }
+    .definition{
+      margin: 50px 0 !important;
+      p{
+          padding: 0!important; 
+      }
+    }
+    .buttons{
+    margin: 0 100px 0 100px !important;
+    }
+
+    .body-attendance{
+        .event-detail{
+            width: 600px !important;
+            div{
+                width:280px !important;
+            }
+        }
+
+    }
+    .search, .other-event, .participant, .guest-show, .blocks, .body-trace .title, .contact-person,.body-event{
+        margin-left: 50px !important;
+        margin-right: 50px !important;
+    }
+    
+    .body-trace {
+        .title h3 {
+            margin-left: 0 !important;
+        }
+        .search .autocomplete{
+            width: 75% !important;
+        }
+    }
+    
+    .show-detail{
+        margin: 50px 0 !important;
+    }
+
+    .detail{
+        width: 500px !important;
+        .text{
+            padding: 30px 10px 30px 30px !important;
+        }
+        .iconImg{
+            padding: 50px 0 50px 10px !important;
+        }
+        .guestId{
+            right: 0 !important;
+            top: -40px !important;
+        }
+    }
+    
+    
+    .body-trace{
+        .autocomple{
+            width: 100vh !important;
+        }
+        .detail-trace{
+            width: 600px !important;
+            .imgLogo{
+                padding-top: 60px !important;
+            }
+        }
+    }
+    .right-event{
+        padding: 0 !important;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .top-right{
+        right: 20px !important;
+    }
+    .top-left{
+        left: 20px !important;
+    }
+    .definition{
+        margin: 50px 0 !important;
+        p{
+            padding:20px;
+        }   
+    }
+    .trace{  
+        margin: 50px 0 10px 0 !important;
+    }
+    .buttons{
+    margin: 0 0 0 0 !important;
+    }
+    
+    .body-attendance{
+        .event-detail{
+            width: 100% !important;
+            div{
+                width:50% !important;
+                margin-left: 10px !important;
+                margin-right: 10px !important;
+            }
+        }
+
+    }
+    .search, .other-event, .participant, .guest-show, .blocks, .body-trace .title, .contact-person,.body-event{
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+    }
+    
+    .detail{
+        width: 300px !important;
+        .text{
+            padding: 30px !important;
+            width: 100% !important;
+        }
+        .iconImg{
+            display: none !important;
+        }
+        .guestId{
+            right: 0 !important;
+            top: -40px !important;
+        }
+    }
+
+    .body-trace{
+        
+        .detail-trace{
+            width: 300px !important;
+            .ta, .cp{
+                width: 100% !important;
+            }
+            .imgLogo{
+                width: 30% !important;
+                padding-top: 60px !important;
+            }
+            .traced_detail{
+                width: 70% !important;
+            }
+        }
+    }
+}

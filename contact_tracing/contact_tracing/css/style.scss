@@ -1,0 +1,753 @@
+@import 'variables';
+@import 'responsive';
+
+.loader{
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  opacity: 1;
+  background-color: $offColor2;
+}
+
+body{
+  background-color: $offColor2 !important;
+}
+
+.attendance-body{
+  background-image: linear-gradient(90deg,
+  $primaryColor 50%,
+  $secondaryColor2 50%) !important;
+}
+
+.logoIcon{
+  text-align: center;
+  p{
+    @include font(28px, normal, normal, $font, bold, $primaryColor);
+    cursor: pointer;
+    @include stroke($primaryColor, bold, $primaryColor,1px,$offColor);
+    text-shadow:  rgba(56, 55, 55, .5) 2px 2px 2px;
+    &:hover{
+      text-shadow:  rgba(56, 55, 55, 0) 2px 2px 2px;
+      transform: translate(1px,1px) ;
+    }
+  }
+}
+
+.top-right{
+  position: absolute;
+  top: 30px;
+  right: 150px;
+}
+
+.exit{
+  p{
+    @include font(18px, normal, 3px, $font2, bold, $offColor);
+    text-transform: uppercase;
+    cursor: pointer;
+    &:hover{
+      transform: translate(-5px,0) ;
+      &:before{
+        content: "<< ";
+      }
+    }
+  }
+}
+
+.top-left{
+  position: absolute;
+  top: 30px;
+  left: 150px;
+}
+
+.body-index{
+  .heading{
+    width: 300px;
+    text-align: center;
+    margin: auto;
+    margin-top: 150px;
+    h1{
+      @include font(130px, 100px, 5px, $font, 100, $primaryColor);
+    }
+    h2{
+      @include font(24px, normal, 5px, $font2, bold, $primaryColor);
+      text-transform: uppercase;
+    }
+  }
+  .trace{
+  margin: 50px 200px 10px 200px;
+  position: relative;
+  border-top: 5px dashed $secondaryColor;
+    p{
+      padding-top: 15px;
+      margin-right: 30px;
+      text-align: right;
+      @include font(18px, normal, 3px, $font2, bold, $secondaryColor);
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .5s ease-in-out;
+    }
+    &:hover{
+      border-top: 5px solid $secondaryColor;
+      p{
+        transform: translate(30px,0) ;
+      }
+    }
+  }
+  .definition{
+    margin: 0 200px 0 200px;
+    p{
+      padding:50px;
+      @include font(16px, normal, 3px, $font2, bold, $secondaryColor);
+      text-transform: uppercase;
+      text-align: center;
+    }
+  }
+
+  .buttons{
+    margin: 0 200px 0 200px;
+    
+    button{
+      position: relative;
+      margin: auto;
+      width: 300px;
+      border-radius: 0;
+      @include font(18px, normal, 3px, $font2, normal, $offColor);
+      text-transform: uppercase;
+      cursor: pointer;
+      background-color: $secondaryColor;
+      border: none;
+      outline: 0;
+      overflow:hidden;
+      z-index: 1;
+      transition:         0.2s ease-in;
+      -o-transition:      0.2s ease-in;
+      -ms-transition:     0.2s ease-in;
+      -moz-transition:    0.2s ease-in;
+
+      &:before {
+      content: "";
+      position: absolute;
+      background: #383736;
+      bottom: 0;
+      left: 0;
+      right: 100%;
+      top: 0;
+      z-index: -1;
+      transition: right 0.2s ease-in;
+      }
+
+      &:hover:before {
+        right: 0;
+      }
+    }
+    div{
+      text-align: center;
+      button{
+        margin: 10px 5px;
+        width: 140px;
+        background-color: $primaryColor;
+        &:first-child{
+          background-color: $primaryColor2;
+        }
+      }
+    }
+    
+  }
+  
+}
+
+.modal{
+  p{
+    @include font(18px, normal, 3px, $font2, bolder, $secondaryColor);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 30px 0 20px 0;
+  }
+  .modal-body{
+    padding: 30px 50px ;
+    table{
+      td{
+        @include font(16px, normal, 3px, $font2, bold, $secondaryColor);
+        text-transform: uppercase;
+        cursor:pointer;
+      }
+    }
+
+  }
+}
+
+.body-attendance{
+  .event-detail{
+    width: 800px;
+    display: flex;
+    margin: auto;
+    text-align: left;
+    margin-top: 150px;
+    div{
+      margin-left: 20px;
+      width:380px;
+      margin-right: 20px;
+      h1{
+        word-wrap: break-word;
+        @include font(36px, normal, normal, $font, 900, $primaryColor);
+        text-transform: uppercase;
+      }
+      p{
+        word-wrap: break-word;
+        @include font(18px, normal, 5px, $font2, bold, $offColor);
+        text-transform: uppercase;
+      }
+      &:first-child{
+        text-align: right;
+        h1{
+          color: $secondaryColor2;
+        }
+        p{
+          color: $offColor;
+        }
+      }
+    }
+  }
+
+  .search{
+    position: relative;
+    margin: 50px 50px 0 150px;
+    .autocomplete{
+      position: relative;
+    }
+    input[type=button], input[type=submit], input[type=reset] {
+      background-color: $primaryColor2;
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+      
+      transition: all .5s ease-in-out;
+      &:hover{
+        background-color: $secondaryColor2;
+      }
+    }
+    input{
+      margin-top: 10px;
+      @include font(18px, normal, 3px, $font2, normal, $secondaryColor);
+      text-transform: uppercase;
+    }
+    p{
+      @include font(14px, 0, 3px, $font2, bold, $offColor);
+      text-transform: uppercase;
+      text-align: right;
+      cursor: pointer;
+      transition: all .5s ease-in-out;
+      &:hover{
+        color: $secondaryColor;
+      }
+    }
+  }
+  .other-event{
+    margin: 50px 70px 0 170px;
+    h3{
+      @include font(18px, normal, 3px, $font2, normal, $offColor);
+      text-transform: uppercase;
+    }
+      
+    table{
+      @include font(16px, normal, 3px, $font2, normal, $offColor);
+      text-transform: uppercase;
+      tr{
+        cursor: pointer;
+        &:hover{
+          background-color: #b42626;
+        }
+      }  
+    }
+  }
+  .participant{
+    
+    margin: 30px 170px 0 70px;
+    h2{
+      @include font(24px, normal, 3px, $font2, normal, $offColor);
+      text-transform: uppercase;
+    }
+    table{
+      @include font(16px, normal, 3px, $font2, normal, $offColor);
+      text-transform: uppercase;
+      tr{
+        cursor: pointer;
+        &:hover{
+          background-color: #b42626;
+        }
+      } 
+      .deleteParticipant{
+        color: $primaryColor;
+        font-weight: 900;
+        font-size: 14px;
+        &:hover{
+          color: $offColor;
+        }
+      }
+    }
+  }
+}
+
+.body-guest, .body-trace, .body-event{
+  min-height: 95vh;
+  
+}
+.body-guest{
+  
+  .detail{
+    display: flex;
+    width: 700px;
+    margin: auto;
+    margin-top: 50px; 
+    margin-bottom: 100px;
+    position: relative;   
+    
+    transition: all .5s ease-in-out;
+    .text{
+      padding: 30px 100px 30px 30px;
+      width: 70%;
+      background-color: $offColor;
+      word-wrap: break-word;
+      h1{
+        @include font(36px, normal, normal, $font, normal, $primaryColor);
+      }
+      h3{
+        @include font(18px, 18px, 3px, $font2, bold, $secondaryColor);
+        text-transform: uppercase;
+      }
+      p{
+        @include font(16px, 16px, 3px, $font2, bold, $secondaryColor);
+        text-transform: uppercase;
+      }
+    }
+    .iconImg{
+      width: 30%;
+      padding: 50px 0 50px 100px;
+      background-color: $offColor;
+      img{
+        width: 100%;
+        display: inline-block;
+      }
+    }
+    .guestId{
+      position: absolute;
+      padding: 10px 20px;
+      border-radius: 15%;
+      right: -20px;
+      top: -20px;
+      background-color: $primaryColor2;
+      @include font(24px, normal, 3px, $font, normal, $offColor);
+    }
+      
+    &:hover{
+      box-shadow: 0px 0px 15px rgba(56, 55, 55, .4);
+    }
+    
+    .editDelete{
+      position: absolute;
+      bottom: -40px;
+      right: 10px;
+      p{
+        cursor: pointer;
+        margin-right: 10px;
+        display: inline;
+        @include font(16px, normal, 3px, $font2, bold, $secondaryColor);
+        text-transform: uppercase;
+        &:last-child{
+          color: $primaryColor;
+        }
+        &:hover{
+          color: $primaryColor2;
+        }
+      }
+    }
+  }
+
+
+  .guest-show{
+    margin: 50px 150px;
+    .title h3{
+      padding-top: 50px;
+      padding-left: 30px;
+      border-top: 5px dashed $secondaryColor;
+      color: $primaryColor ;
+    } 
+    .filter{
+      margin: auto;
+      width: 50%;
+    }
+  }
+  
+  .blocks{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin: 50px 100px;
+    #searchDiv{
+      display: flex;
+      flex-wrap: wrap;
+      width:100%;
+      div{
+        cursor: pointer;
+        width: 130px;
+        padding: 35px 10px;
+        margin: 5px 5px;
+        background-color: $offColor;
+        text-align: center;
+        border: 1px solid rgba(104, 87, 87, 0.2);
+        p{
+          @include font(16px, normal, 3px, $font2, bold, $secondaryColor);
+          text-transform: uppercase;
+        }
+        &:first-child{
+          p{
+          font-size: 48px;
+          color: $offColor;
+          }
+          background-color: $primaryColor2;
+          transition: all .5s ease-in-out;
+          &:hover{
+            background-color: $primaryColor;
+          }
+        }
+        &:hover{
+          box-shadow: 0px 0px 8px rgba(56, 55, 55, .4);
+        }
+      }
+    }
+  }
+}
+
+.body-trace{
+  .title{
+    margin: 50px 0 0 150px;
+    h3{
+      margin-left: 50px;
+      color: $primaryColor;
+    }
+  } 
+
+  .search{
+    margin: 0 0 80px 200px;
+    .autocomplete{
+      width: 30%;
+    }
+    input[type=button], input[type=submit], input[type=reset] {
+      background-color: $secondaryColor;
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+      
+      transition: all .5s ease-in-out;
+      &:hover{
+        background-color: $secondaryColor2;
+      }
+    }
+  }
+  .detail-trace{
+    margin:auto;
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    .ta{
+      width: 25%;
+      text-align: center;
+      h1{
+        @include font(100px, normal, 3px, $font, 900, $primaryColor);
+        word-wrap: wrap;
+      }
+      p{
+        @include font(18px, normal, 3px, $font2, bold, $primaryColor);
+        text-transform: uppercase;
+      }
+    }
+    .cp{
+      width: 25%;
+      text-align: center;
+      h1{
+        @include font(100px, normal, 3px, $font, 900, $primaryColor2);
+        word-wrap: wrap;
+      }
+      p{
+        @include font(18px, normal, 3px, $font2, bold, $primaryColor2);
+        text-transform: uppercase;
+      }
+    }
+    .imgLogo{
+      width: 15%;
+      padding-top: 30px;
+      img{
+        width: 100%;
+        display: inline;
+      }
+    }
+    .traced_detail{
+      width: 35%;
+      padding-top: 40px;
+      p{
+        @include font(18px, normal, 3px, $font2, bold, $secondaryColor);
+        text-transform: uppercase;
+        &:nth-child(2){
+          background-color: $secondaryColor;
+          color: $offColor;
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+
+  .contact-person{
+    margin: 100px 150px;
+    border-top: 5px dashed $secondaryColor;
+    h3{
+      @include font(18px, normal, 3px, $font2, bold, $secondaryColor);
+      text-transform: uppercase;
+      padding: 30px 0 0 30px;
+    }
+    table{
+      cursor: pointer;
+      img{
+        width: 20px;
+      }
+      @include font(18px, normal, 3px, $font2, bold, $secondaryColor);
+      text-transform: uppercase;
+      .td-guest:hover{
+        background-color: $primaryColor2;
+        color: $offColor;
+      }
+      .td-event:hover{
+        background-color: $primaryColor;
+        color: $offColor;
+      }
+    }
+  }
+
+}
+
+.body-event{
+  margin: 50px 150px;
+  .show-detail{
+    margin: 50px 50px 100px 50px;
+    display: flex;
+    position: relative;
+    .event-number{
+      background-color: $primaryColor;
+      width: 30%;
+      position: relative;
+      p{
+        @include font(48px, normal, 3px, $font, 900, $offColor);
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .text{
+      width: 70%;
+      padding-left: 20px;
+      h2{
+        @include font(24px, 20px, 3px, $font, 900, $primaryColor);
+      }
+      h1{
+        @include font(36px, 30px, 3px, $font, 900, $secondaryColor);
+      }
+      p{
+        @include font(18px, 18px, 3px, $font2, bold, $secondaryColor);
+        text-transform: uppercase;
+      }
+    }
+    
+    .buttons{
+      position: absolute;
+      bottom: -40px;
+      right: 10px;
+      p{
+        cursor: pointer;
+        display: inline;
+        margin-right: 10px;
+        @include font(16px, normal, 3px, $font2, bold, $secondaryColor);
+        text-transform: uppercase;
+        &:last-child{
+          color: $primaryColor;
+        }
+        &:hover{
+          color: $primaryColor2;
+        }
+      }
+    }
+  }
+  .participant-section{
+    border-top: 5px dashed $secondaryColor;
+    h3{
+      @include font(18px, normal, 3px, $font2, bold, $secondaryColor);
+      text-transform: uppercase;
+      padding-top :30px;
+    }
+    .table{
+      cursor: pointer;
+      @include font(18px, normal, 3px, $font2, bold, $secondaryColor);
+      text-transform: uppercase;
+      p{
+        color: $primaryColor;
+        font-size: 12px;
+        &:hover{
+          color: $secondaryColor2;
+        }
+
+      }
+    }
+    form{
+      .autocomplete{
+        width: 50%;
+      }
+      input[type=button], input[type=submit], input[type=reset] {
+        background-color: $secondaryColor;
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all .5s ease-in-out;
+        &:hover{
+          background-color: $secondaryColor2;
+        }
+      }
+    }
+  }
+  .right-event{
+    padding-left:50px;
+    .title h3{
+      padding-bottom: 30px;
+      color: $primaryColor;
+    }
+    table{
+      @include font(14px, normal, 3px, $font2, bold, $secondaryColor);
+      text-transform: uppercase;
+      cursor: pointer;
+      th{
+        color: $primaryColor2;
+      }
+    }
+    .event-detail{
+      margin-top: 30px;
+      button{
+        margin-bottom: 10px;
+        background-color: $primaryColor2;
+        color: $offColor;
+        transition: all .5s ease-in-out;
+        &:hover{
+          background-color: $secondaryColor2;
+        }
+      }
+    }
+  }
+}
+
+.traced{
+  border-top: 5px solid $secondaryColor !important;
+}
+
+.nav>li>a:focus,.nav>li>a:hover {
+  text-decoration: none;
+  background-color: transparent !important;
+}
+nav{
+  margin: 0 150px ;
+  padding-top: 40px;
+  a{
+    text-align: center;
+    @include font(18px, normal, 3px, $font2, bolder ,$secondaryColor);
+    text-transform: uppercase;
+    &:hover{
+      color: $primaryColor2;
+    }
+  }
+  li.active{
+    a{
+      color: $primaryColor;
+    }
+  }
+}
+
+
+
+.container-form{
+  margin: 0 30px;
+  input{
+    margin: 5px 0;
+  }
+}
+
+div.title{
+  h3{
+    @include font(24px, normal, 3px, $font2, bold, $offColor);
+    text-transform: uppercase;
+  }
+}
+
+.sidenav-left{
+  background-color: $secondaryColor2;
+  p{
+    @include font(16px, normal, 3px, $font2, normal, $offColor);
+    text-transform: uppercase;
+    padding-top: 10px;
+  }
+  button{
+    background-color: $primaryColor;
+    color: $offColor;
+    transition: all .5s ease-in-out;
+    &:hover{
+      color: $offColor;
+      background-color: $secondaryColor;
+    }
+  }
+  
+}
+
+.sidenav-right{
+  background-color: $primaryColor;
+  
+  p{
+    @include font(16px, normal, 3px, $font2, normal, $offColor);
+    text-transform: uppercase;
+    padding-top: 10px;
+  }
+  
+  button{
+    background-color: $primaryColor2;
+    color: $offColor;
+    transition: all .5s ease-in-out;
+    &:hover{
+      color: $offColor;
+      background-color: $secondaryColor;
+    }
+  }
+}
+
+input, button{
+  border-radius: 0 !important;
+  border: none !important;
+  outline: 0 !important;
+  @include font(18px, normal, 3px, $font2, normal, $secondaryColor);
+  text-transform: uppercase !important;
+}
+
+.footer{
+  position: realative;
+  bottom: 0;
+  width: 100%;
+  padding: 5px;
+  // background-color: $secondaryColor2;
+  text-align: center;
+  P{
+    @include font(14px, normal, 3px, $font2, 900, $secondaryColor2);
+    text-transform: uppercase !important;
+    &:before{
+      content: "©";
+    }
+  }
+}
+
